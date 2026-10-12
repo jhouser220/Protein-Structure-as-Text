@@ -99,13 +99,6 @@ Written to `foldseek_lora/<run_name>/` on Drive:
 
 `prompt_hits.json` (the downsampled hits actually used in prompts) is saved to `foldseek_work/` on Drive.
 
-## Notes and caveats
-
-- **Eval loss** is computed without taxonomy/retrieval dropout and without random cropping, so it is deterministic.
-- **Training steps:** a final partial gradient-accumulation group is stepped rather than discarded.
-- **Foldseek IDs:** the pipeline assumes Foldseek query and target IDs match the accession keys in the CSVs. Check a few hits after the first search if you change the PDB file naming.
-- **Copying analysis:** the `copy_rate` section of the analysis notebook (ROUGE-L between each prediction and its best retrieved description) is a reconstruction of an earlier cell that referenced undefined variables. Confirm it measures what you intend.
-- **Not covered:** the original upstream scripts (`train_instruct.py`, `train_contrast.py`) support multi-GPU DDP, a learning-rate scheduler, and checkpoint resume. This project is single-GPU and has no scheduler or resume option.
 
 ## Acknowledgements
 
