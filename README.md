@@ -22,27 +22,6 @@ The project has two notebooks and a small package that holds all the logic:
    - `seq_only`: neither (taxonomy is always "unknown").
 7. **Evaluation.** Exact match, BLEU-2/4, ROUGE and BERTScore (RoBERTa-large and BioBERT-large), overall and stratified by best-hit identity.
 
-## Repository layout
-
-```
-.
-├── README.md
-├── requirements.txt
-├── train.ipynb
-├── analysis.ipynb
-└── src/
-    └── prot2text_foldseek/
-        ├── config.py       # dataclasses for all paths and hyperparameters
-        ├── structures.py   # AlphaFold downloads
-        ├── retrieval.py    # Foldseek index/search, hit parsing, downsampling, Drive backup/restore
-        ├── dataset.py      # Dataset, collater, SplitFactory, prompt inspection
-        ├── modeling.py     # load the HF checkpoint, attach LoRA, gradient checkpointing
-        ├── training.py     # train/eval loops and fit()
-        ├── generation.py   # generate_split and the prompt conditions
-        ├── metrics.py      # metrics, identity bins, stratified and per-protein scoring
-        └── analysis.py     # artifact loading and the per-protein master table
-```
-
 ## Requirements
 
 - Google Colab (or similar) with a GPU that fits the 11B model in bfloat16 with LoRA and gradient checkpointing.
